@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 	public Player player;
 	public Text scoreText;
 	public GameObject surfer1;
+	public GameObject heart;
+	public Text pausedText;
 	private int score;
 	public int hazardCount;
 	public float spawnWait;
@@ -17,13 +19,18 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		score = 0;
-		scoreText.text = "Dude Points: " + score;
+		scoreText.text = "Dude Points: " + score; 
+		pausedText.enabled = false;
 		StartCoroutine (SpawnWaves ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (player.getHP() == 0)
+			GameOver ();
+
+		if (Input.GetKeyDown (KeyCode.Escape))
+			Pause ();
 	}
 
 	IEnumerator SpawnWaves() {
@@ -42,12 +49,30 @@ public class GameManager : MonoBehaviour {
 				Instantiate (surfer1, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
+			Vector2 heartSpawnPosition = new Vector2 (Random.Range (player.minX, player.maxX), -5.3f);
+			Quaternion heartSpawnRotation = Quaternion.identity;
+			Instantiate (heart, heartSpawnPosition, heartSpawnRotation);
 			yield return new WaitForSeconds (waveWait);
+		}
+	}
+
+	void Pause() {
+		if (Time.timeScale == 1) {
+			Time.timeScale = 0;
+			pausedText.enabled = true;
+		} else {
+			Time.timeScale = 1;
+			pausedText.enabled = false;
 		}
 	}
 
 	public void addScore(int value) {
 		score += value;
 		scoreText.text = "Dude Points: " + score;
+	}
+
+	void GameOver() {
+		Debug.Log ("game over");
+		Time.timeScale = 0;
 	}
 }
