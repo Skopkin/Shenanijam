@@ -1,31 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour {
 
 	public float speed, minX, minY, maxX, maxY;
+	private float tempSpeed;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRen;
-
-	private CapsuleCollider2D hitbox;
 	private Animator anim;
-
-	//private CapsuleCollider2D hitbox;
 	private DudeAttack child;
+	private Slider meter;
+	private RawImage heart;
 
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		spriteRen = GetComponent<SpriteRenderer>();
-
-		hitbox = GetComponent<CapsuleCollider2D>();
 		anim = GetComponent<Animator>();
-
-		//hitbox = GetComponent<CapsuleCollider2D>();
 		child = GetComponentInChildren<DudeAttack>();
+		meter = FindObjectOfType<Slider>();
+
+		meter.value = 1;
+		tempSpeed = speed;
 	}
 
 	void Update() {
@@ -34,7 +34,8 @@ public class Player : MonoBehaviour {
 		pos.y = Mathf.Clamp (pos.y, minY, maxY);
 		rb.position = pos;
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) && meter.value >= 0.1f) {
+			meter.value -= 0.1f;
 			spinToWin ();
 		}
 	}
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour {
 			spriteRen.flipX = false;
 		}
 
-
+		meter.value += Time.deltaTime * 0.02f;
 	}
 
 	void spinToWin() {
@@ -62,10 +63,27 @@ public class Player : MonoBehaviour {
 
 	void EnableChild () {
 		child.enableHitbox();
+		speed *= 2f;
 	}
 
 	void DisableChild () {
+		speed = tempSpeed;
 		child.disableHitbox();
 		anim.ResetTrigger("Attack");
 	}
+
+	void OnCollisionEnter2D (Collision2D coll) {
+		if (coll.gameObject.tag == "Obstacle") {
+			Vector2 pushback = (transform.position - coll.gameObject.transform.position).normalized;
+			rb.AddForce(pushback * (speed * 25));
+			
+		} else if (coll.gameObject.tag == "Pickup") {
+			Pickup ();
+		}
+	}
+
+	void Pickup() {
+
+	}
+
 }
