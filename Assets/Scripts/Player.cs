@@ -14,9 +14,6 @@ public class Player : MonoBehaviour {
 		spriteRen = GetComponent<SpriteRenderer>();
 	}
 
-<<<<<<< HEAD
-	void FixedUpdate () {
-=======
 	void Update() {
 		Vector2 pos = rb.position;
 		pos.x = Mathf.Clamp (pos.x, minX, maxX);
@@ -26,7 +23,6 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate () 
 	{
->>>>>>> master
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
