@@ -8,15 +8,25 @@ public class Player : MonoBehaviour {
 	public float speed, minX, minY, maxX, maxY;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRen;
+<<<<<<< HEAD
 	private CapsuleCollider2D hitbox;
 	private Animator anim;
+=======
+	//private CapsuleCollider2D hitbox;
+	private DudeAttack child;
+>>>>>>> master
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		spriteRen = GetComponent<SpriteRenderer>();
+<<<<<<< HEAD
 		hitbox = GetComponent<CapsuleCollider2D>();
 		anim = GetComponent<Animator>();
+=======
+		//hitbox = GetComponent<CapsuleCollider2D>();
+		child = GetComponentInChildren<DudeAttack>();
+>>>>>>> master
 	}
 
 	void Update() {
@@ -24,6 +34,10 @@ public class Player : MonoBehaviour {
 		pos.x = Mathf.Clamp (pos.x, minX, maxX);
 		pos.y = Mathf.Clamp (pos.y, minY, maxY);
 		rb.position = pos;
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			spinToWin ();
+		}
 	}
 
 	void FixedUpdate () 
@@ -40,12 +54,14 @@ public class Player : MonoBehaviour {
 			spriteRen.flipX = false;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			spinToWin ();
-		}
+
 	}
 
 	void spinToWin() {
+<<<<<<< HEAD
 		anim.SetTrigger("Attack");
+=======
+		child.enableHitbox ();
+>>>>>>> master
 	}
 }
