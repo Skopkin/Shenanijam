@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4a04844bc691e44738faf5ded93052b6
-timeCreated: 1495855544
+guid: bc8a33ca076ea4886bd67a9571e75249
+timeCreated: 1495862527
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -102,10 +102,10 @@ TextureImporter:
       name: sheet_test_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 2120
-        width: 310
-        height: 329
+        x: 0
+        y: 0
+        width: 141
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,10 +115,10 @@ TextureImporter:
       name: sheet_test_1
       rect:
         serializedVersion: 2
-        x: 412
-        y: 2120
-        width: 310
-        height: 322
+        x: 182
+        y: 0
+        width: 141
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: sheet_test_2
       rect:
         serializedVersion: 2
-        x: 777
-        y: 2120
-        width: 310
-        height: 322
+        x: 352
+        y: 0
+        width: 142
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: sheet_test_3
       rect:
         serializedVersion: 2
-        x: 1144
-        y: 2120
-        width: 310
-        height: 322
+        x: 523
+        y: 0
+        width: 141
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: sheet_test_4
       rect:
         serializedVersion: 2
-        x: 1527
-        y: 2120
-        width: 310
-        height: 329
+        x: 701
+        y: 0
+        width: 141
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
