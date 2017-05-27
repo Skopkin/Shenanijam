@@ -1,17 +1,10 @@
 fileFormatVersion: 2
-guid: 9e9aeb57ac67648d4ace2bd7ca86353f
-timeCreated: 1495896795
+guid: 4a98cfbc75afd463d8787b140a27e36a
+timeCreated: 1495908710
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spin_test 1_0
-    21300002: spin_test 1_1
-    21300004: spin_test 1_2
-    21300006: spin_test 1_3
-    21300008: spin_test 1_4
-    21300010: spin_test 1_5
-    21300012: spin_test 1_6
-    21300014: spin_test 1_7
+    21300000: justthelast_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -102,93 +95,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spin_test 1_0
+      name: justthelast_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spin_test 1_2
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 15
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spin_test 1_3
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 15
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spin_test 1_4
-      rect:
-        serializedVersion: 2
-        x: 533
+        x: 1869
         y: 0
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spin_test 1_5
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 3
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spin_test 1_6
-      rect:
-        serializedVersion: 2
-        x: 867
-        y: 1
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spin_test 1_7
-      rect:
-        serializedVersion: 2
-        x: 1042
-        y: 0
-        width: 140
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 293
+        height: 176
+      alignment: 9
+      pivot: {x: 0.75868326, y: 0.8841974}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
