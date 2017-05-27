@@ -14,10 +14,9 @@ public class DudeAttack : MonoBehaviour {
 	// Update is called once per frame
 	public void enableHitbox () {
 		self.enabled = true;
-		Invoke ("disableHitbox", 2);
 	}
 
-	void disableHitbox() {
+	public void disableHitbox() {
 		self.enabled = false;
 	
 	}

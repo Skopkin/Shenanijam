@@ -8,25 +8,24 @@ public class Player : MonoBehaviour {
 	public float speed, minX, minY, maxX, maxY;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRen;
-<<<<<<< HEAD
+
 	private CapsuleCollider2D hitbox;
 	private Animator anim;
-=======
+
 	//private CapsuleCollider2D hitbox;
 	private DudeAttack child;
->>>>>>> master
+
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		spriteRen = GetComponent<SpriteRenderer>();
-<<<<<<< HEAD
+
 		hitbox = GetComponent<CapsuleCollider2D>();
 		anim = GetComponent<Animator>();
-=======
+
 		//hitbox = GetComponent<CapsuleCollider2D>();
 		child = GetComponentInChildren<DudeAttack>();
->>>>>>> master
 	}
 
 	void Update() {
@@ -58,10 +57,15 @@ public class Player : MonoBehaviour {
 	}
 
 	void spinToWin() {
-<<<<<<< HEAD
 		anim.SetTrigger("Attack");
-=======
-		child.enableHitbox ();
->>>>>>> master
+	}
+
+	void EnableChild () {
+		child.enableHitbox();
+	}
+
+	void DisableChild () {
+		child.disableHitbox();
+		anim.ResetTrigger("Attack");
 	}
 }
