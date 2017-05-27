@@ -8,10 +8,13 @@ public class Player : MonoBehaviour {
 	public float speed, minX, minY, maxX, maxY;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRen;
+	private CapsuleCollider2D hitbox;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		spriteRen = GetComponent<SpriteRenderer>();
+		hitbox = GetComponent<CapsuleCollider2D>();
 	}
 
 	void Update() {
