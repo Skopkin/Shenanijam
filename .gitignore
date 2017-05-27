@@ -94,3 +94,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/osx,unity,windows,monodevelop
+Assets/Scenes/Scene1.unity
