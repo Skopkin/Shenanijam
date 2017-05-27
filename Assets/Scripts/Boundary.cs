@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boundary : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D coll) {
-		Destroy (coll.gameObject);
+		if (coll.gameObject.tag == "Obstacle")
+			Destroy (coll.gameObject);
 	}
 }
