@@ -13,8 +13,6 @@ public class Player : MonoBehaviour {
 	private Animator anim;
 	private DudeAttack child;
 	private Slider meter;
-	private RawImage heart;
-
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +21,6 @@ public class Player : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		child = GetComponentInChildren<DudeAttack>();
 		meter = FindObjectOfType<Slider>();
-
 		meter.value = 1;
 		tempSpeed = speed;
 	}
