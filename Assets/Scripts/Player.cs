@@ -9,12 +9,14 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRen;
 	private CapsuleCollider2D hitbox;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		spriteRen = GetComponent<SpriteRenderer>();
 		hitbox = GetComponent<CapsuleCollider2D>();
+		anim = GetComponent<Animator>();
 	}
 
 	void Update() {
@@ -44,6 +46,6 @@ public class Player : MonoBehaviour {
 	}
 
 	void spinToWin() {
-		Debug.Log ("Attack");
+		anim.SetTrigger("Attack");
 	}
 }
