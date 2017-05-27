@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DudeAttack : MonoBehaviour {
 
-	private CircleCollider2D self;
+	private Collider2D self;
+	public int enemyValue;
 	// Use this for initialization
 	void Start () {
-		self = GetComponent<CircleCollider2D> ();	
+		self = GetComponent<Collider2D> ();	
 		disableHitbox ();
 	}
 	

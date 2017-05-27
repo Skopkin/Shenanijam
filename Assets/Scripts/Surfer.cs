@@ -5,12 +5,14 @@ using UnityEngine;
 public class Surfer : MonoBehaviour {
 
 	public float speed;
+	public Player player;
 	private float direction;
 	private float force;
 	private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		player = FindObjectOfType<Player> ();
 		if (rb.position.x > 0)
 			direction = -1;
 		else
@@ -21,11 +23,14 @@ public class Surfer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	}
+
+	void FixedUpdate() {
 		rb.AddForce(new Vector2(force, 0.0f));
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Obstacle")
+		if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Floater")
 			Physics2D.IgnoreCollision (coll.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 	}
 }
