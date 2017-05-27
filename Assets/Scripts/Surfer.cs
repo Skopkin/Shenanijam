@@ -23,4 +23,9 @@ public class Surfer : MonoBehaviour {
 	void Update () {
 		rb.AddForce(new Vector2(force, 0.0f));
 	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "Obstacle")
+			Physics2D.IgnoreCollision (coll.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+	}
 }
