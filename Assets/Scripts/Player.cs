@@ -29,9 +29,9 @@ public class Player : MonoBehaviour {
 		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
 
 		rb.AddForce (movement * speed);
-		if (movement.x < 0) {
+		if (Input.GetKey(KeyCode.A) && !Input.GetKey (KeyCode.D)) {
 			spriteRen.flipX = true;
-		} else {
+		} else if (Input.GetKey (KeyCode.D) && !Input.GetKey(KeyCode.A)) {
 			spriteRen.flipX = false;
 		}
 
