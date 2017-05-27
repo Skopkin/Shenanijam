@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	public Text scoreText;
 	public GameObject surfer1;
 	public GameObject heart;
+	public AudioSource bgmSource;
+	public AudioClip bgmClip;
 	public Text pausedText;
 	private int score;
 	public int hazardCount;
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour {
 		score = 0;
 		scoreText.text = "Dude Points: " + score; 
 		pausedText.enabled = false;
+		bgmSource.clip = bgmClip;
+		bgmSource.Play ();
 		StartCoroutine (SpawnWaves ());
 	}
 	

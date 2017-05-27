@@ -7,6 +7,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour {
 
 	public float speed, minX, minY, maxX, maxY;
+	public AudioSource heartSource;
+	public AudioClip heartClip;
 	private float tempSpeed;
 	private int hp;
 	private Rigidbody2D rb;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour {
 		heart1.SetActive (true);
 		heart2.SetActive (true);
 		heart3.SetActive (true);
+		heartSource.clip = heartClip;
 		hp = 3;
 		meter.value = 1;
 		tempSpeed = speed;
@@ -87,6 +90,7 @@ public class Player : MonoBehaviour {
 		} else if (coll.gameObject.tag == "Floater") {
 			if (hp < 3 && hp > 0) {
 				IncreaseHearts ();
+				heartSource.Play ();
 				Destroy (coll.gameObject);
 			} else {
 				Physics2D.IgnoreCollision (coll.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
