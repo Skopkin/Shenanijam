@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour {
 
-	public float speed;
+	public float speed, minX, minY, maxX, maxY;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRen;
 	// Use this for initialization
@@ -14,7 +14,19 @@ public class Player : MonoBehaviour {
 		spriteRen = GetComponent<SpriteRenderer>();
 	}
 
+<<<<<<< HEAD
 	void FixedUpdate () {
+=======
+	void Update() {
+		Vector2 pos = rb.position;
+		pos.x = Mathf.Clamp (pos.x, minX, maxX);
+		pos.y = Mathf.Clamp (pos.y, minY, maxY);
+		rb.position = pos;
+	}
+
+	void FixedUpdate () 
+	{
+>>>>>>> master
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
