@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public float speed, minX, minY, maxX, maxY;
 	private float tempSpeed;
 	private int hp;
+	private float xScale;
 	public AudioSource heartSource;
 	public AudioClip heartClip;
 	private Rigidbody2D rb;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour {
 	private DudeAttack child;
 	private Slider meter;
 	private GameObject heart1, heart2, heart3;
+	private bool flippedSprite;
 
 	// Use this for initialization
 	void Start () {
@@ -36,9 +38,10 @@ public class Player : MonoBehaviour {
 		hp = 3;
 		meter.value = 1;
 		tempSpeed = speed;
+		xScale = transform.localScale.x;
 	}
 
-	void Update() {
+	void Update () {
 		Vector2 pos = rb.position;
 		pos.x = Mathf.Clamp (pos.x, minX, maxX);
 		pos.y = Mathf.Clamp (pos.y, minY, maxY);
@@ -47,6 +50,12 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space) && meter.value >= 0.1f && Time.timeScale != 0) {
 			meter.value -= 0.1f;
 			spinToWin ();
+		}
+
+		if (flippedSprite) {
+			transform.localScale = new Vector3 (-xScale, transform.localScale.y, transform.localScale.z);
+		} else {
+			transform.localScale = new Vector3 (xScale, transform.localScale.y, transform.localScale.z);
 		}
 	}
 
@@ -59,9 +68,9 @@ public class Player : MonoBehaviour {
 
 		rb.AddForce (movement * speed);
 		if (Input.GetKey(KeyCode.A) && !Input.GetKey (KeyCode.D)) {
-			spriteRen.flipX = true;
+			flippedSprite = true;
 		} else if (Input.GetKey (KeyCode.D) && !Input.GetKey(KeyCode.A)) {
-			spriteRen.flipX = false;
+			flippedSprite = false;
 		}
 
 		meter.value += Time.deltaTime * 0.02f;
