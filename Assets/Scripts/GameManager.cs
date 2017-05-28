@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour {
 
 	void GameOver() {
 		Time.timeScale = 0.5f;
+		Animator myAnimator = player.GetComponent<Animator> ();
+		myAnimator.SetBool ("Fall", true);
 		Invoke ("LoadMenu", 2f);
 
 	}
