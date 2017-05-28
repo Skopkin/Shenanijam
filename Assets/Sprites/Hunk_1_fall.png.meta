@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: 6d8a088a0d896497a883c4bf96193011
+timeCreated: 1495985373
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Hunk_1_fall_0
+    21300002: Hunk_1_fall_1
+    21300004: Hunk_1_fall_2
+    21300006: Hunk_1_fall_3
+    21300008: Hunk_1_fall_4
+    21300010: Hunk_1_fall_5
+    21300012: Hunk_1_fall_6
+    21300014: Hunk_1_fall_7
+    21300016: Hunk_1_fall_8
+    21300018: Hunk_1_fall_9
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hunk_1_fall_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 460
+        width: 142
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 460
+        width: 147
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_2
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 460
+        width: 180
+        height: 162
+      alignment: 9
+      pivot: {x: 0.5346334, y: 0.55772233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_3
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 460
+        width: 204
+        height: 147
+      alignment: 9
+      pivot: {x: 0.6107761, y: 0.6113219}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 233
+        width: 224
+        height: 140
+      alignment: 9
+      pivot: {x: 0.6043642, y: 0.7282098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_5
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 245
+        width: 182
+        height: 125
+      alignment: 9
+      pivot: {x: 0.6498562, y: 0.7119568}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_6
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 262
+        width: 201
+        height: 106
+      alignment: 9
+      pivot: {x: 0.71204156, y: 0.804925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_7
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 270
+        width: 186
+        height: 112
+      alignment: 9
+      pivot: {x: 0.72196716, y: 0.789555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 176
+        height: 125
+      alignment: 9
+      pivot: {x: 0.54870325, y: 0.52493596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hunk_1_fall_9
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 12
+        width: 194
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5080335, y: 0.50364614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

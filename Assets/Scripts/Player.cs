@@ -13,20 +13,20 @@ public class Player : MonoBehaviour {
 	public AudioSource heartSource;
 	public AudioClip heartClip;
 	private Rigidbody2D rb;
-	private SpriteRenderer spriteRen;
 	private Animator anim;
 	private DudeAttack child;
 	private Slider meter;
 	private GameObject heart1, heart2, heart3;
 	private bool flippedSprite;
+	private CapsuleCollider2D myCollider;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		spriteRen = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		child = GetComponentInChildren<DudeAttack>();
 		meter = FindObjectOfType<Slider>();
+		myCollider = GetComponent<CapsuleCollider2D>();
 		heartSource.clip = heartClip;
 		heart1 = GameObject.Find ("Heart1");
 		heart2 = GameObject.Find ("Heart2");
@@ -81,11 +81,14 @@ public class Player : MonoBehaviour {
 	}
 
 	void EnableChild () {
+		myCollider.enabled = false;
 		child.enableHitbox();
 		speed *= 2f;
+
 	}
 
 	void DisableChild () {
+		myCollider.enabled = true;
 		speed = tempSpeed;
 		child.disableHitbox();
 		anim.ResetTrigger("Attack");
@@ -95,7 +98,6 @@ public class Player : MonoBehaviour {
 		if (coll.gameObject.tag == "Obstacle") {
 			Vector2 pushback = (transform.position - coll.gameObject.transform.position).normalized;
 			rb.AddForce (pushback * (speed * 25));
-			ReduceHearts ();
 		} else if (coll.gameObject.tag == "Projectile") {
 			Destroy (coll.gameObject);
 			ReduceHearts ();
@@ -115,7 +117,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void ReduceHearts() {
+	public void ReduceHearts() {
 		hp--;
 		switch (hp) {
 		case 0:

@@ -29,9 +29,11 @@ public class DudeAttack : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D coll) {
 		if (coll.gameObject.tag == "Obstacle") {
+			Animator hunkAnim;
+			hunkAnim = coll.GetComponent<Animator>();
 			audioSource.Play ();
 			gm.addScore (enemyValue);
-			Destroy (coll.gameObject);
+			hunkAnim.SetTrigger ("hunkFall");
 		}
 	}
 }
