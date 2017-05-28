@@ -12,6 +12,7 @@ public class MenuController : MonoBehaviour {
 	public AudioClip waveClip;
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		MenuReturn ();
 		waveSource.clip = waveClip;
 		waveSource.Play ();
