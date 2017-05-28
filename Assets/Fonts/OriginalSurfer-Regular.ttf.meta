@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f1df8c59b241c8d4ba1e8dd1a8596bce
-timeCreated: 1495844137
+guid: 9ab95f11b317b5045b542910bfd193c7
+timeCreated: 1495986651
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -9,9 +9,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: SkaterDudes
+  fontName: Original Surfer
   fontNames:
-  - SkaterDudes
+  - Original Surfer
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
