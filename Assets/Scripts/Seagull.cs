@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Seagull : MonoBehaviour {
 
+
 	private Rigidbody2D rb;
 	private float direction, force, shitRate;
 	public float speed;
@@ -39,5 +40,6 @@ public class Seagull : MonoBehaviour {
 		Vector2 spawnPosition = new Vector2 (rb.transform.position.x, rb.transform.position.y);
 		Quaternion spawnRotation = Quaternion.identity;
 		Instantiate (shit, spawnPosition, spawnRotation);
+
 	}
 }

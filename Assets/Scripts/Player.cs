@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	private float xScale;
 	public AudioSource heartSource;
 	public AudioClip heartClip;
+	public AudioSource ahhSource;
+	public AudioClip AhhClip;
 	private Rigidbody2D rb;
 	private Animator anim;
 	private DudeAttack child;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour {
 		meter = FindObjectOfType<Slider>();
 		myCollider = GetComponent<CapsuleCollider2D>();
 		heartSource.clip = heartClip;
+		ahhSource.clip = AhhClip;
 		heart1 = GameObject.Find ("Heart1");
 		heart2 = GameObject.Find ("Heart2");
 		heart3 = GameObject.Find ("Heart3");
@@ -154,6 +157,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void IncreaseEnergy(float value) {
+		ahhSource.Play ();
 		meter.value += value;
 	}
 
