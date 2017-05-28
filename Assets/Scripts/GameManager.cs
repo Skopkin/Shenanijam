@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 		scoreText.text = "Dude Points: " + score; 
 		pausedText.enabled = false;
 		bgmSource.clip = bgmClip;
-		//bgmSource.Play ();
+		bgmSource.Play ();
 		StartCoroutine (SpawnWaves ());
 	}
 	
