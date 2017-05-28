@@ -85,10 +85,12 @@ public class Player : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D coll) {
 		if (coll.gameObject.tag == "Obstacle") {
 			Vector2 pushback = (transform.position - coll.gameObject.transform.position).normalized;
-			rb.AddForce(pushback * (speed * 25));
+			rb.AddForce (pushback * (speed * 25));
 			ReduceHearts ();
-			
-		} 
+		} else if (coll.gameObject.tag == "Projectile") {
+			Destroy (coll.gameObject);
+			ReduceHearts ();
+		}
 	}
 
 	public void IncreaseHearts() {

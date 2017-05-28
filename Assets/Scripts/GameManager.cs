@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject surfer1;
 	public GameObject heart;
 	public GameObject coffee;
+	public GameObject seagull;
 	public AudioSource bgmSource;
 	public AudioClip bgmClip;
 	public Text pausedText;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour {
 		scoreText.text = "Dude Points: " + score; 
 		pausedText.enabled = false;
 		bgmSource.clip = bgmClip;
-		bgmSource.Play ();
+		//bgmSource.Play ();
 		StartCoroutine (SpawnWaves ());
 	}
 	
@@ -42,16 +43,11 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds (startWait);
 		while(true) {
 			for (int i = 0; i < hazardCount;i++) {
-				bool b = (Random.value > 0.5f);
-				float x;
-				if (b) {
-					x = player.maxX + 0.5f;
-				} else {
-					x = player.minX - 0.5f;
-				}
-				Vector2 spawnPosition = new Vector2 (x ,Random.Range (player.minY, player.maxY));
-				Quaternion spawnRotation = Quaternion.identity;
-				Instantiate (surfer1, spawnPosition, spawnRotation);
+				spawnEnemy (surfer1);
+
+				if (i > 0 && i % 3 == 0)
+					spawnEnemy (seagull);
+				
 				if (Random.Range (1, 5) == 2)
 					spawnPickup (coffee);
 				yield return new WaitForSeconds (spawnWait);
@@ -87,5 +83,24 @@ public class GameManager : MonoBehaviour {
 		Vector2 pickupSpawnPosition = new Vector2 (Random.Range (player.minX, player.maxX), -5.3f);
 		Quaternion pickupSpawnRotation = Quaternion.identity;
 		Instantiate (o, pickupSpawnPosition, pickupSpawnRotation);
+	}
+
+	private void spawnEnemy (GameObject o) {
+		bool b = (Random.value > 0.5f);
+		float x, y;
+		if (b) {
+			x = player.maxX + 0.5f;
+		} else {
+			x = player.minX - 0.5f;
+		}
+
+		if (o == seagull)
+			y = 4.45f;
+		else
+			y = Random.Range (player.minY, player.maxY);
+		
+		Vector2 spawnPosition = new Vector2 (x, y);
+		Quaternion spawnRotation = Quaternion.identity;
+		Instantiate (o, spawnPosition, spawnRotation);
 	}
 }
