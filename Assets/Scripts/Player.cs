@@ -94,7 +94,7 @@ public class Player : MonoBehaviour {
 	void EnableChild () {
 		myCollider.enabled = false;
 		child.enableHitbox();
-		speed *= 2f;
+		speed *= 3.3f;
 
 	}
 
