@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Floater : MonoBehaviour {
+public class HeartPickup : MonoBehaviour {
 
 	public float xForce;
 	public float yForce;

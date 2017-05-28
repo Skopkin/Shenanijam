@@ -119,7 +119,15 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public void IncreaseEnergy(float value) {
+		meter.value += value;
+	}
+
 	public int getHP() {
 		return hp;
+	}
+
+	public float getEnergy() {
+		return meter.value;
 	}
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public Player player;
 	public GameObject surfer1;
 	public GameObject heart;
+	public GameObject coffee;
 	public AudioSource bgmSource;
 	public AudioClip bgmClip;
 	public Text pausedText;
@@ -51,11 +52,11 @@ public class GameManager : MonoBehaviour {
 				Vector2 spawnPosition = new Vector2 (x ,Random.Range (player.minY, player.maxY));
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (surfer1, spawnPosition, spawnRotation);
+				if (Random.Range (1, 5) == 2)
+					spawnPickup (coffee);
 				yield return new WaitForSeconds (spawnWait);
 			}
-			Vector2 heartSpawnPosition = new Vector2 (Random.Range (player.minX, player.maxX), -5.3f);
-			Quaternion heartSpawnRotation = Quaternion.identity;
-			Instantiate (heart, heartSpawnPosition, heartSpawnRotation);
+			spawnPickup (heart);
 			yield return new WaitForSeconds (waveWait);
 		}
 	}
@@ -80,5 +81,11 @@ public class GameManager : MonoBehaviour {
 	public void addScore(int value) {
 		score += value;
 		scoreText.text = "Dude Points: " + score; 
+	}
+
+	private void spawnPickup(GameObject o) {
+		Vector2 pickupSpawnPosition = new Vector2 (Random.Range (player.minX, player.maxX), -5.3f);
+		Quaternion pickupSpawnRotation = Quaternion.identity;
+		Instantiate (o, pickupSpawnPosition, pickupSpawnRotation);
 	}
 }

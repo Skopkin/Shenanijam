@@ -16,8 +16,12 @@ public class Surfer : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		//player = FindObjectOfType<Player> ();
 		orgY = transform.localPosition.y;
-		sinSpeed = Random.Range (1f, 6f);
-		amp = Random.Range (0.7f, 1f);
+		sinSpeed = Random.Range (1f, 3.5f);
+		bool b = (Random.value > 0.5f);
+		if (b)
+			amp = Random.Range (0.7f, 1f);
+		else
+			amp = Random.Range (-0.7f, -1f);
 		if (rb.position.x > 0)
 			direction = -1;
 		else
