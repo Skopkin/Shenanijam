@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	public AudioClip bgmClip;
 	public Text pausedText;
 	private int score;
+	private int waveCount;
 	public Text scoreText;
 	public int hazardCount;
 	public float spawnWait;
@@ -41,17 +43,22 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator SpawnWaves() {
 		yield return new WaitForSeconds (startWait);
+		waveCount = 0;
 		while(true) {
+			waveCount += 1;
 			for (int i = 0; i < hazardCount;i++) {
 				spawnEnemy (surfer1);
 
 				if (i > 0 && i % 3 == 0)
 					spawnEnemy (seagull);
 				
-				if (Random.Range (1, 5) == 2)
+				if (Random.Range (1, 10) == 2 && i >= hazardCount / 2)
 					spawnPickup (coffee);
 				yield return new WaitForSeconds (spawnWait);
 			}
+			if (waveCount != 0 && waveCount % 3 == 0 && spawnWait > 1)
+				spawnWait -= 0.5f;
+			hazardCount += 4;
 			spawnPickup (heart);
 			yield return new WaitForSeconds (waveWait);
 		}
@@ -70,8 +77,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void GameOver() {
-		Debug.Log ("game over");
-		Time.timeScale = 0;
+		Time.timeScale = 0.5f;
+		Invoke ("LoadMenu", 2f);
+
 	}
 
 	public void addScore(int value) {
@@ -89,9 +97,9 @@ public class GameManager : MonoBehaviour {
 		bool b = (Random.value > 0.5f);
 		float x, y;
 		if (b) {
-			x = player.maxX + 0.5f;
+			x = player.maxX + 2f;
 		} else {
-			x = player.minX - 0.5f;
+			x = player.minX - 2f;
 		}
 
 		if (o == seagull)
@@ -102,5 +110,9 @@ public class GameManager : MonoBehaviour {
 		Vector2 spawnPosition = new Vector2 (x, y);
 		Quaternion spawnRotation = Quaternion.identity;
 		Instantiate (o, spawnPosition, spawnRotation);
+	}
+
+	void LoadMenu() {
+		SceneManager.LoadScene ("Menu");
 	}
 }

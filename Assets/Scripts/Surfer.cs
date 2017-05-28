@@ -11,14 +11,14 @@ public class Surfer : MonoBehaviour {
 	private float force;
 	private Rigidbody2D rb;
 	public int enemyValue;
-
+	private SpriteRenderer sprite;
 	private CapsuleCollider2D coll;
 	private Player player;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		coll = GetComponent<CapsuleCollider2D>();
-
+		sprite = GetComponent<SpriteRenderer> ();
 		//player = FindObjectOfType<Player> ();
 		orgY = transform.localPosition.y;
 		sinSpeed = Random.Range (1f, 3.5f);
@@ -27,9 +27,10 @@ public class Surfer : MonoBehaviour {
 			amp = Random.Range (0.7f, 1f);
 		else
 			amp = Random.Range (-0.7f, -1f);
-		if (rb.position.x > 0)
+		if (rb.position.x > 0) {
 			direction = -1;
-		else
+			sprite.flipX = true;
+		} else
 			direction = 1;
 		
 		force = speed * direction;
