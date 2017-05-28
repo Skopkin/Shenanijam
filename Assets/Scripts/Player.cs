@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
 	private GameObject heart1, heart2, heart3;
 	private bool flippedSprite;
 	private CapsuleCollider2D myCollider;
+	private bool canAttack = true;
 
 	// Use this for initialization
 	void Start () {
@@ -47,8 +48,7 @@ public class Player : MonoBehaviour {
 		pos.y = Mathf.Clamp (pos.y, minY, maxY);
 		rb.position = pos;
 
-		if (Input.GetKeyDown (KeyCode.Space) && meter.value >= 0.1f && Time.timeScale != 0) {
-			meter.value -= 0.1f;
+		if (Input.GetKeyDown (KeyCode.Space) && meter.value >= 0.1f && Time.timeScale != 0 && canAttack) {
 			spinToWin ();
 		}
 
@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
 		} else {
 			transform.localScale = new Vector3 (xScale, transform.localScale.y, transform.localScale.z);
 		}
+
 	}
 
 	void FixedUpdate () 
@@ -80,12 +81,17 @@ public class Player : MonoBehaviour {
 		anim.SetTrigger("Attack");
 	}
 
+	public void ReduceEnergy () {
+		meter.value -= 0.2f;
+	}
+
 	void EnableChild () {
 		myCollider.enabled = false;
 		child.enableHitbox();
 		speed *= 2f;
 
 	}
+
 
 	void DisableChild () {
 		myCollider.enabled = true;
@@ -94,10 +100,25 @@ public class Player : MonoBehaviour {
 		anim.ResetTrigger("Attack");
 	}
 
+	void EnableCollider () {
+		myCollider.enabled = true;
+	}
+	void DisableCollider () {
+		myCollider.enabled = false;
+	}
+
+	void CanAttack () {
+		canAttack = true;
+	}
+	void CantAttack () {
+		canAttack = false;
+	}
+
 	void OnCollisionEnter2D (Collision2D coll) {
 		if (coll.gameObject.tag == "Obstacle") {
 			Vector2 pushback = (transform.position - coll.gameObject.transform.position).normalized;
 			rb.AddForce (pushback * (speed * 25));
+			anim.SetTrigger("Bounce");
 		} else if (coll.gameObject.tag == "Projectile") {
 			Destroy (coll.gameObject);
 			ReduceHearts ();

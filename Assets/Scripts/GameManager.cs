@@ -70,8 +70,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void GameOver() {
-		Debug.Log ("game over");
-		Time.timeScale = 0;
+		Animator playerAnimator = player.GetComponent<Animator>();
+		playerAnimator.SetBool("Fall", true);
 	}
 
 	public void addScore(int value) {
