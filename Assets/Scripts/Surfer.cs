@@ -5,14 +5,19 @@ using UnityEngine;
 public class Surfer : MonoBehaviour {
 
 	public float speed;
-	public Player player;
+	//private Player player;
+	private float orgY, sinSpeed, amp;
 	private float direction;
 	private float force;
 	private Rigidbody2D rb;
+	public int enemyValue;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		player = FindObjectOfType<Player> ();
+		//player = FindObjectOfType<Player> ();
+		orgY = transform.localPosition.y;
+		sinSpeed = Random.Range (1f, 6f);
+		amp = Random.Range (0.7f, 1f);
 		if (rb.position.x > 0)
 			direction = -1;
 		else
@@ -27,6 +32,7 @@ public class Surfer : MonoBehaviour {
 
 	void FixedUpdate() {
 		rb.AddForce(new Vector2(force, 0.0f));
+		transform.localPosition = new Vector2 (transform.localPosition.x, (orgY + amp * Mathf.Sin(sinSpeed*Time.time)));
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {

@@ -8,9 +8,11 @@ public class DudeAttack : MonoBehaviour {
 	public int enemyValue;
 	public AudioClip wilhelm;
 	public AudioSource audioSource;
+	private GameManager gm;
 	// Use this for initialization
 	void Start () {
 		self = GetComponent<Collider2D> ();	
+		gm = FindObjectOfType<GameManager> ();
 		audioSource.clip = wilhelm;
 		disableHitbox ();
 	}
@@ -28,6 +30,7 @@ public class DudeAttack : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D coll) {
 		if (coll.gameObject.tag == "Obstacle") {
 			audioSource.Play ();
+			gm.addScore (enemyValue);
 			Destroy (coll.gameObject);
 		}
 	}

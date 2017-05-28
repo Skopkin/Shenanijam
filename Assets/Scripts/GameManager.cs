@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public Player player;
-	public Text scoreText;
 	public GameObject surfer1;
 	public GameObject heart;
 	public AudioSource bgmSource;
 	public AudioClip bgmClip;
 	public Text pausedText;
 	private int score;
+	public Text scoreText;
 	public int hazardCount;
 	public float spawnWait;
 	public float startWait;
@@ -62,21 +62,23 @@ public class GameManager : MonoBehaviour {
 
 	void Pause() {
 		if (Time.timeScale == 1) {
+			bgmSource.Pause ();
 			Time.timeScale = 0;
 			pausedText.enabled = true;
 		} else {
+			bgmSource.UnPause ();
 			Time.timeScale = 1;
 			pausedText.enabled = false;
 		}
 	}
 
-	public void addScore(int value) {
-		score += value;
-		scoreText.text = "Dude Points: " + score;
-	}
-
 	void GameOver() {
 		Debug.Log ("game over");
 		Time.timeScale = 0;
+	}
+
+	public void addScore(int value) {
+		score += value;
+		scoreText.text = "Dude Points: " + score; 
 	}
 }
