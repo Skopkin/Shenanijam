@@ -9,14 +9,18 @@ public class Seagull : MonoBehaviour {
 	private float direction, force, shitRate;
 	public float speed;
 	public GameObject shit;
+	private SpriteRenderer sprite;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
-		if (rb.position.x > 0)
+		sprite = GetComponent<SpriteRenderer> ();
+		if (rb.position.x > 0) {
 			direction = -1;
-		else
+		} else {
 			direction = 1;
+			sprite.flipX = true;
+		}
 
 		force = speed * direction;
 		shitRate = Random.Range (2f, 3.5f);
