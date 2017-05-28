@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour {
 
 	public GameObject mainMenu;
 	public GameObject credits;
+	public GameObject controls;
 	public AudioSource waveSource;
 	public AudioClip waveClip;
 	// Use this for initialization
@@ -31,6 +32,7 @@ public class MenuController : MonoBehaviour {
 
 	public void Manual() {
 		HideMenu ();
+		controls.SetActive (true);
 	}
 
 	public void Credits() {
@@ -45,5 +47,6 @@ public class MenuController : MonoBehaviour {
 	public void MenuReturn () {
 		credits.SetActive (false);
 		mainMenu.SetActive (true);
+		controls.SetActive (false);
 	}
 }

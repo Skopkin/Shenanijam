@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
 	public AudioClip heartClip;
 	public AudioSource ahhSource;
 	public AudioClip AhhClip;
+	public AudioSource ughSource;
+	public AudioClip ughClip;
 	private Rigidbody2D rb;
 	private Animator anim;
 	private DudeAttack child;
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour {
 		myCollider = GetComponent<CapsuleCollider2D>();
 		heartSource.clip = heartClip;
 		ahhSource.clip = AhhClip;
+		ughSource.clip = ughClip;
 		heart1 = GameObject.Find ("Heart1");
 		heart2 = GameObject.Find ("Heart2");
 		heart3 = GameObject.Find ("Heart3");
@@ -143,6 +146,7 @@ public class Player : MonoBehaviour {
 
 	public void ReduceHearts() {
 		hp--;
+		ughSource.Play ();
 		switch (hp) {
 		case 0:
 			heart1.SetActive (false);

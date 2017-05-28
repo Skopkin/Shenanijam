@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
 				yield return new WaitForSeconds (spawnWait);
 			}
 			if (waveCount != 0 && waveCount % 3 == 0 && spawnWait > 1)
-				spawnWait -= 0.5f;
+				spawnWait -= 1f;
 			hazardCount += 4;
 			spawnPickup (heart);
 			yield return new WaitForSeconds (waveWait);
