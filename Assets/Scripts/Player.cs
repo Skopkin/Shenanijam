@@ -16,6 +16,10 @@ public class Player : MonoBehaviour {
 	public AudioClip AhhClip;
 	public AudioSource ughSource;
 	public AudioClip ughClip;
+	public AudioSource attackSource;
+	public AudioClip attackClip;
+	public AudioSource dedSource;
+	public AudioClip dedClip;
 	private Rigidbody2D rb;
 	private Animator anim;
 	private DudeAttack child;
@@ -35,6 +39,8 @@ public class Player : MonoBehaviour {
 		heartSource.clip = heartClip;
 		ahhSource.clip = AhhClip;
 		ughSource.clip = ughClip;
+		attackSource.clip = attackClip;
+		dedSource.clip = dedClip;
 		heart1 = GameObject.Find ("Heart1");
 		heart2 = GameObject.Find ("Heart2");
 		heart3 = GameObject.Find ("Heart3");
@@ -84,6 +90,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void spinToWin() {
+		attackSource.Play ();
 		anim.SetTrigger("Attack");
 	}
 
@@ -147,7 +154,11 @@ public class Player : MonoBehaviour {
 
 	public void ReduceHearts() {
 		hp--;
-		ughSource.Play ();
+		if (hp > 0)
+			ughSource.Play ();
+		else
+			dedSource.Play ();
+		
 		switch (hp) {
 		case 0:
 			heart1.SetActive (false);

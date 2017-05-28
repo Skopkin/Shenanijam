@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject seagull;
 	public AudioSource bgmSource;
 	public AudioClip bgmClip;
+	public AudioSource dedSource;
+	public AudioClip dedClip;
 	public Text pausedText;
 	private int score;
 	private int waveCount;
@@ -28,14 +30,16 @@ public class GameManager : MonoBehaviour {
 		scoreText.text = "Dude Points: " + score; 
 		pausedText.enabled = false;
 		bgmSource.clip = bgmClip;
+		dedSource.clip = dedClip;
 		bgmSource.Play ();
 		StartCoroutine (SpawnWaves ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (player.getHP() == 0)
+		if (player.getHP () == 0) {
 			GameOver ();
+		}
 
 		if (Input.GetKeyDown (KeyCode.Escape))
 			Pause ();
@@ -48,6 +52,7 @@ public class GameManager : MonoBehaviour {
 			waveCount += 1;
 			for (int i = 0; i < hazardCount;i++) {
 				spawnEnemy (surfer1);
+				addScore (1);
 
 				if (i > 0 && i % 3 == 0)
 					spawnEnemy (seagull);
@@ -77,7 +82,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void GameOver() {
-		Time.timeScale = 0.5f;
+		//Time.timeScale = 0.5f;
 		Animator myAnimator = player.GetComponent<Animator> ();
 		myAnimator.SetBool ("Fall", true);
 		Invoke ("LoadMenu", 2f);
