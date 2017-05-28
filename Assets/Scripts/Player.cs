@@ -128,6 +128,7 @@ public class Player : MonoBehaviour {
 		} else if (coll.gameObject.tag == "Projectile") {
 			Destroy (coll.gameObject);
 			ReduceHearts ();
+			anim.SetTrigger("Bounce");
 		}
 	}
 
